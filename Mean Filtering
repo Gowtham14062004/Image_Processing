@@ -1,0 +1,28 @@
+% Load the original image
+originalImage =imread("/MATLAB Drive/01 gettyimages-522032391_resized.jpg");  % replace with your image name 
+
+% Define the size of the filter (window size)
+filterSize = 3; % Adjust this value based on the desired amount of blurring
+
+% Get the dimensions of the original image
+[rows, cols, ~] = size(originalImage);
+
+% Initialize the filtered image matrix
+
+filteredImage_mean = uint8(zeros(rows, cols));
+
+% Apply the mean filter
+for i = 1 + filterSize : rows - filterSize
+for j = 1 + filterSize : cols - filterSize
+% Extract the neighborhood of the current pixel
+neighborhood = originalImage(i - filterSize : i + filterSize,j - filterSize : j + filterSize);
+% Compute the mean value of the neighborhood
+meanValue = mean(neighborhood(:));
+% Assign the mean value to the corresponding pixel in the filtered image
+filteredImage_mean(i, j) = meanValue;
+end
+end
+
+% Display the result
+imshow(filteredImage_mean);
+title('Mean Filtered Image');
