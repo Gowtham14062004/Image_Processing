@@ -1,0 +1,17 @@
+originalImage=imread('matlabim3.jpg');% Replace with your local noisy image.jpg
+if size(originalImage,3)==3
+    grayimage=rgb2gray(originalImage);
+else
+    grayimage=originalImage;
+end
+
+enhancedimage=histeq(grayimage);
+
+figure;
+subplot(1,2,1);
+imshow(grayimage);
+title('original image');
+
+subplot(1,2,2);
+imshow(enhancedimage);
+title('Enhanced Image');
