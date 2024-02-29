@@ -1,0 +1,36 @@
+%ADDITION
+a=[1,2,3,4,5];
+b=[2,3,4,5,6];
+c=a+b;
+disp(c);
+
+%SUBTRACTION
+a=[1,2,3,4,5];
+b=[2,3,4,5,6];
+c=a-b;
+disp(c);
+
+%MULTIPLICATION
+
+a=[1,2,3,4,5];
+b=[2,3,4,5,6];
+c=a.*b;
+disp(c);
+
+a=[1,2,3;2,3,4;3,4,5];
+b=[89,56,45;56,53,23;3,3,4];
+c=a.*b;
+disp(c);
+
+
+%MATRIX
+
+A = table([1;2],[3;4],VariableNames=["V1","V2"],RowNames=["R1","R2"]);
+
+B = table([4;2],[3;1],VariableNames=["V2","V1"],RowNames=["R2","R1"]);
+
+
+C = A .* B;
+disp(c);
+
+
