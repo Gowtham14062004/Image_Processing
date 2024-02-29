@@ -1,0 +1,62 @@
+originalImage=imread("matlabim3.jpg");
+imshow(originalImage);
+
+
+h=fspecial('motion',10,10);
+
+filteredImage=imfilter(originalImage,h);
+
+figure;
+subplot(2,4,1);
+imshow(filteredImage);
+title('Image with motion blur');
+
+subplot(2,4,5);
+imhist(filteredImage);
+title('Histogram of Filtered image');
+
+blurredimage=imgaussfilt(originalImage,1);
+
+subplot(2,4,2);
+imshow(blurredimage);
+title('Gaussian Filtered Image');
+
+
+subplot(2,4,6);
+imhist(blurredimage);
+title('Histogram of Gaussian Fitered Image');
+
+strechedImage=imadjust(originalImage,stretchlim(originalImage),[]);
+
+
+
+subplot(2,4,3);
+imshow(strechedImage);
+title('Contrast  streteched Image');
+
+
+subplot(2,4,7);
+imhist(strechedImage);
+title('Histogram of contrast  stretched image');
+
+
+se=strel('disk',5);
+erodedImage=imerode(originalImage,se);
+
+subplot(2,4,4);
+imshow(erodedImage);
+title('Eroded Image');
+
+subplot(2,4,8);
+imhist(erodedImage);
+title('Histogram of Eroded image');
+
+
+st=strel('square',3);
+dialtedIm=imdilate(originalImage,st);
+figure;
+subplot(1,2,1);
+imshow(originalImage);
+subplot(1,2,2);
+imshow(dialtedIm);
+
