@@ -1,0 +1,44 @@
+originalImage=imread("g.jpg");%replace with your local file image in a noisy jpg format
+
+grayimage=rgb2gray(originalImage);
+
+threshold=100;
+binaryImage=grayimage>threshold;
+
+binaryImage=imfill(binaryImage,'holes');
+
+
+subplot(1,2,1);
+imshow(originalImage);
+title('Original Image');
+
+
+subplot(1,2,2);
+imshow(originalImage);
+title('segmented image');
+
+imshow(originalImage);
+
+h=fspecial('motion',10,10);
+
+fileteredImage=imfilter(originalImage,h);
+figure;
+subplot(2,2,1);
+imshow(filteredImage);
+title('Image with motion Blur');
+
+subplot(2,2,2);
+imhist(filteredImage);
+title('histogram of filtered image');
+
+
+blurredImage=imgaussfilt(originalImage,1);
+
+
+subplot(2,2,3);
+imshow(blurredImage);
+title('gaussian filtered image');
+
+subplot(2,2,4);
+imhist(blurredImage);
+title('histogram of gaussian image');
