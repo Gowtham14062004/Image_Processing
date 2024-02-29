@@ -1,0 +1,6 @@
+originalImage =imread("/MATLAB Drive/01 gettyimages-522032391_resized.jpg"); % Replace with your local RGBimage
+grayImage = rgb2gray(originalImage); % Convert to grayscale
+filterSize = 3;
+filteredImage_median = medfilt2(grayImage, [filterSize,filterSize]);
+imshow(filteredImage_median);
+title('Median Filtered Image');
