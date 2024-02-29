@@ -1,0 +1,20 @@
+originalImage=imread("/MATLAB Drive/g.jpg");
+
+motionlength=10;
+motionangle=10;
+
+h=fspecial('motion',motionlength,motionangle);
+
+filteredImage=imfilter(originalImage,h);
+
+gaussiansigma=1;
+
+blurredimage=imgaussfilt(originalImage,gaussiansigma);
+
+subplot(1,2,1);
+imshow(filteredImage);
+title('motion blur image');
+
+subplot(1,2,2);
+imshow(blurredimage);
+title('gaussian blur image');
